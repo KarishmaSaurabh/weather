@@ -1,16 +1,35 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-</head>
-<body>
-    {% block content %}
-    <h5>Hello! World</h5>
 
-    {% endblock %}
-</body>
-</html>
+{% block content %}
+    
+  <br>
+
+{% if zipcode %}
+    {{ zipcode }}
+{% endif %}
+ 
+{% if api %}
+    {% if api == Error... %}
+           There was and error,Please try again..
+
+    {% else %}
+         <div class="jumbotron {{ category_color }}">
+
+
+            <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+            <p class="lead">Current {{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }} <br></p>
+            
+           <p> {{ category_description }} </p>
+            
+         
+        </div>
+            
+         
+          
+
+      {% endif %}
+
+
+{% endif %}
+
+{% endblock %}
